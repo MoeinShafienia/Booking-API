@@ -54,8 +54,9 @@ namespace Booking.Controllers
 
             const int  minShowTime = 30;
             const int maxShowTime = 120;
-            int showLenght = (show.EndTime - show.StartTime).Minutes;
+            int showLenght = (show.EndTime - show.StartTime).Hours * 60 + (show.EndTime - show.StartTime).Minutes;
             if (showLenght < minShowTime || showLenght > maxShowTime){
+                Console.Write(showLenght);
                 return BadRequest();
             }   
 
